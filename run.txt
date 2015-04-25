@@ -1,0 +1,34 @@
+java Encryptor /a/home/cc/students/cs/leviyitacl/Desktop/plaintext.txt /a/home/cc/students/cs/leviyitacl/Desktop/encrypted.txt /a/home/cc/students/cs/leviyitacl/Desktop/keystore1.jks selfsigned1 mypassword1 selfsigned2 /a/home/cc/students/cs/leviyitacl/Desktop/config_input.cfg
+
+java Decryptor /a/home/cc/students/cs/leviyitacl/Desktop/encrypted.txt /a/home/cc/students/cs/leviyitacl/Desktop/decrypted.txt /a/home/cc/students/cs/leviyitacl/Desktop/keystore2.jks selfsigned2 mypassword2 /a/home/cc/students/cs/leviyitacl/Desktop/config.cfg selfsigned1
+
+
+(in our run this is the path of files /a/home/cc/students/cs/leviyitacl/Desktop/  *see remark below ) 
+
+encryptor run configuration file order :
+
+1. plaintext.txt - the file to encrypt
+2. encrypted.txt - the name of the file which will be encrypted
+3. keystore1.jks - keystore file of the encryptor
+4. selfsigned1 mypassword1 - alias and password of the encryptor(keystore1.jks)
+5. selfsigned2 - alias of the decrypter (keystore2.jks)
+6. config_input.cfg - configuration file of the encrypter
+
+
+decryptor run configuration file order :
+
+1. encrypted.txt - the file encrypted
+2. decrypted.txt- the name of the file which will be decrypted
+3. keystore2.jks - keystore file of the decryptor
+4. selfsigned2 mypassword2 - alias and password of the decryptor(keystore2.jks)
+5. config.cfg - configuration file of the decryptor
+6. selfsigned1 - alias of the encryptor (keystore1.jks)
+
+
+*remark - file suppose to run without full path as long the files are in the same folder .
+
+i.e :  
+
+java Encryptor plaintext.txt encrypted.txt keystore1.jks selfsigned1 mypassword1 selfsigned2 config_input.cfg
+
+java Decryptor encrypted.txt decrypted.txt keystore2.jks selfsigned2 mypassword2 config.cfg selfsigned1 
